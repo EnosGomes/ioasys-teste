@@ -36,16 +36,18 @@ public class Filme {
 	
 	
 	@ElementCollection
-	@CollectionTable(name = "diretores")
+	@CollectionTable(name = "DIRETOR")
 	private Set<String> diretores = new HashSet<>();
 	
+	/*
 	@ElementCollection
 	@CollectionTable(name = "atores")
-	private Set<String> atores = new HashSet<>();
+	private Set<String> atores = new HashSet<>();*/
 	
 	private Genero genero;
 	private long quantidadeVotos;
 	private double mediaVotos;
+	private Long codigo;
 
 	public Filme(
 			String nome, 
@@ -61,48 +63,8 @@ public class Filme {
 		this.quantidadeVotos = 0;
 		this.mediaVotos = 0.0;
 	}	
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ano;
-		result = prime * result + duracaoMinutos;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
+	
+	public void adicionaVotaFilme() {
+		this.quantidadeVotos++;
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Filme other = (Filme) obj;
-		if (ano != other.ano)
-			return false;
-		if (duracaoMinutos != other.duracaoMinutos)
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Filme [nome=" + nome + ", ano=" + ano + ", duracaoMinutos=" + duracaoMinutos + ", descricao="
-				+ descricao + ", quantidadeVotos=" + quantidadeVotos + ", mediaVotos=" + mediaVotos + "]";
-	}
-
 }

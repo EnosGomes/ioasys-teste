@@ -40,7 +40,9 @@ public class UsuarioImpl implements UsuarioService{
 	
 	@Override
 	public Usuario fromDTO(Usuario objDto) {
-		return new Usuario(objDto.getId(), objDto.getNome(), objDto.getDataNascimento(), TipoUsuario.NORMAL, true);
+		return new Usuario(objDto.getId(), objDto.getNome(), 
+				objDto.getDataNascimento(), TipoUsuario.CLIENTE,
+				true, null, null, null, null);
 	}
 
 	@Override

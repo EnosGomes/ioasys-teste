@@ -1,7 +1,1 @@
-FROM maven:3.8.2-jdk-8
-
-WORKDIR /filmes-api
-COPY . .
-RUN mvn clean install
-
-CMD mvn spring-boot:run
+FROM maven:3.5-jdk-8
